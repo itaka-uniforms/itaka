@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/jpeg" href="./logoitaki.png">
+    <title>Ubrania Służbowe Itaka</title>
+        <div class="color_red"></div>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin-left: 18%;
+            margin-right: 18%;
+            background-color: #ffffff;
+        }
+
+        .header {
+            background-color: white;
+            padding: 20px 40px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-text {
+            font-weight: bold;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        .for-text {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .itaka-logo {
+            height: 50px;
+        }
+        
+        .itaka-logo img {
+            height: 100%;
+            width: auto;
+        }
+
+        .top-right-link {
+            position: absolute;
+            top: 20px;
+            margin-right: 20%;
+            right: 40px;
+            color: #e63946;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .main-content {
+            max-width: 600px;
+            background-color: white;
+            padding: 40px;
+            margin-bottom: 80px;
+            margin-top: 10px;
+            border-radius: 4px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            font-weight: normal;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #a8a8a8;
+            font-size: 14px;
+        }
+
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            border-color: #e63946;
+        }
+
+        .forgot-password {
+            font-size: 13px;
+            margin-top: 8px;
+        }
+
+        .forgot-password a {
+            color: #333;
+            text-decoration: underline;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 15px;
+            background-color: #dc2628;
+            height: 55px;
+            color: white;
+            border: none;
+            border-radius: 1px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .login-button:hover {
+            background-color: #d62839;
+        }
+
+        .footer-section {
+            max-width: 100%;
+            padding: 0 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+.color_blac{
+    width: 100%;
+                margin-bottom: 15px;
+    background-color: black;
+    height: 2px;
+}
+
+
+.color_red{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: #d62839;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+                margin-bottom: 15px;
+}
+        .footer-links a {
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .bottom-footer {
+            position: fixed;
+            bottom: 50;
+            left: 0;
+            right: 0;            
+            text-align: center;
+            padding: 7px;
+            height: 30px;
+            font-size: 13px;
+            color: #666;
+            background-color: #e8e8e8;
+            margin-top: 40px;
+        }
+
+        .cookie-notice {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #f4f19c;
+            padding: 15px 20px;
+            font-size: 12px;
+            text-align: center;
+            display: flex;
+justify-content: center;
+
+            align-items: center;
+        }
+
+        .cookie-notice button {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 0 10px;
+        }
+/* Style dla modala */
+.modal-overlay {
+    display: none; /* Ukryty domyślnie */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.modal-header {
+    margin-bottom: 20px;
+}
+
+.warning-icon {
+    font-size: 40px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.modal-content h2 {
+    color: #d62839;
+    font-size: 20px;
+}
+
+.modal-content p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 25px;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.btn-primary {
+    background-color: #d62839;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-secondary {
+    background-color: #eee;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-primary:hover { background-color: #b91d2c; }
+.btn-secondary:hover { background-color: #ddd; }
+    </style>
+</head>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const loginForm = document.querySelector('form');
+    const modal = document.getElementById('antiphishingModal');
+    const closeBtn = document.getElementById('closeModal');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+
+    // 1. MANIPULACJA URL (Dla efektu "legit")
+    // Gdy tylko użytkownik kliknie w pole e-mail, zmieniamy URL na bardziej profesjonalny
+    emailInput.addEventListener('focus', function() {
+        window.history.pushState({}, "", "/autoryzacja/panel-klienta/logowanie-bezpieczne");
+    });
+
+    // 2. OBSŁUGA PRÓBY LOGOWANIA
+    loginForm.addEventListener('submit', function(e) {
+        e.preventDefault(); // Zatrzymujemy wysłanie danych do serwera
+
+        // Sprawdzamy czy pola nie są puste (opcjonalnie)
+        if (emailInput.value && passwordInput.value) {
+            // Pokazujemy modal z Twoim komunikatem
+            modal.style.display = 'flex';
+        }
+    });
+
+    // 3. ZAMKNIĘCIE MODALA I RESET
+    closeBtn.addEventListener('click', function() {
+        modal.style.display = 'none';
+        
+        // Czyścimy formularz, żeby pokazać, że dane "zniknęły" i nie zostały zapisane
+        loginForm.reset();
+        
+        // Przywracamy pierwotny URL lub informujemy o sukcesie kampanii
+        window.history.pushState({}, "", "/bezpieczny-powrot");
+        alert("Dziękujemy za zapoznanie się z kampanią. Pamiętaj: Zawsze sprawdzaj domenę przed podaniem hasła!");
+    });
+
+window.addEventListener('load', function() {
+    setTimeout(function() {
+        document.getElementById('loader').style.display = 'none';
+    }, 1800); // 1.8 sekundy "ładowania"
+});
+});
+</script>
+<script>
+    // Skrypt do wyłączenia loadera i przywrócenia przewijania strony
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            const loader = document.getElementById('loader');
+            loader.style.opacity = '0';
+            loader.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => {
+                loader.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }, 500);
+        }, 2200); // 2.2 sekundy dla realizmu
+    });
+</script>
+<body>
+<div id="loader" style="position:fixed; top:0; left:0; width:100%; height:100%; background:#ffffff; display:flex; flex-direction:column; justify-content:center; align-items:center; z-index:9999; font-family: 'Segoe UI', Tahoma, sans-serif;">
+    <div style="margin-bottom: 25px;">
+        <img src="logo.jpg" alt="ITAKA" style="height: 45px; width: auto;">
+    </div>
+    
+    <div class="itaka-spinner" style="width: 35px; height: 35px; border: 3px solid #f3f3f3; border-top: 3px solid #d62839; border-radius: 50%; animation: spin 0.8s linear infinite;"></div>
+    
+    <div style="margin-top: 20px; text-align: center;">
+        <p style="font-size: 14px; color: #333; font-weight: 600; margin-bottom: 5px; letter-spacing: 0.3px;">Authenticating...</p>
+        <p style="font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 1px;">Securing encrypted connection</p>
+    </div>
+
+    <style>
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        body { overflow: hidden; }
+    </style>
+</div>
+    <header class="header">
+        <div class="logo-container">
+            <div class="itaka-logo">
+                <img src="logo.jpg" alt="ITAKA">
+            </div>
+        </div>
+        <a href="#" class="top-right-link">Zaloguj się</a>
+    </header>
+
+    <main class="main-content">
+        <h1>Zaloguj się</h1>
+        
+        <form>
+            <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Hasło:</label>
+                <input type="password" id="password" name="password" required>
+                <div class="forgot-password">
+                    Nie pamiętasz hasła? <a href="#">Kliknij tutaj</a>
+                </div>
+            </div>
+
+            <button type="submit" class="login-button">Zaloguj się</button>
+        </form>
+    </main>
+
+    <section class="footer-section">
+        <div class="color_blac"></div>
+        <h3>Informacje</h3>
+        <ul class="footer-links">
+            <li><a href="#">Kontakt</a></li>
+            <li><a href="#">Wymiany</a></li>
+            <li><a href="#">Reklamacje</a></li>
+            <li><a href="#">Regulamin</a></li>
+        </ul>
+    </section>
+
+    <footer class="bottom-footer">
+        Sklep internetowy Shoper.pl
+    </footer>
+
+    <div class="cookie-notice">
+        <span>Strona korzysta z plików cookies w celu realizacji usług i zgodnie z Polityką Plików Cookies. Możesz określić warunki przechowywania lub dostępu do plików cookies w Twojej przeglądarce.</span>
+        <button onclick="this.parentElement.style.display='none'">✕</button>
+    </div>
+<!-- Modal Antyphishingowy -->
+<div id="antiphishingModal" class="modal-overlay">
+    <div class="modal-content" style="border: 3px solid #d62839;">
+        <div class="modal-header">
+            <h2 style="color: #d62839; font-weight: bold; font-size: 26px; margin-bottom: 10px;">
+                MAMY TWOJE HASŁO!
+            </h2>
+            <h3 style="color: #333; font-size: 18px; margin-bottom: 20px;">
+                Jeśli chcesz je odzyskać, wpłać 40 PLN na numer: <br>
+                <span style="letter-spacing: 2px; font-weight: bold; font-size: 30px;">999 999 995</span><br>
+                CZAS 5 minut do rospoczecia dywersji
+
+            </h3>
+        </div>
+        
+        <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+        
+        <p style="font-style: italic; color: #555; background: #f9f9f9; padding: 15px; border-radius: 5px;">
+            <strong>Spokojnie, to tylko test!</strong> Tak mógłby brzmieć komunikat od oszustów, gdyby ta strona była prawdziwym atakiem phishingowym. 
+            Nigdy nie podawaj haseł na stronach, do których trafiłeś przez linki w mailach lub SMS-ach.
+        </p>
+        
+        <p style="font-size: 12px; color: #888; margin-top: 15px;">
+            [Kampania informacyjna: Ta strona nie przechwytuje ani nie przechowuje żadnych danych]
+        </p>
+
+        <div class="modal-buttons" style="margin-top: 25px;">
+            <button id="closeModal" class="btn-primary" style="width: 100%;">Rozumiem zagrożenie</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>
